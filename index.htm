@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+
+<body>
+
+    <input type="number" placeholder="1-10" id="eded" onfocus="bas()">
+    <button onclick="ok()">Oke</button>
+    <span id="yazdir"></span>
+
+
+    <script>
+
+        let ran = Math.floor(Math.random() * 10) + 1;
+        console.log(ran);
+        let sans = 3;
+
+        function ok() {
+            let x = document.getElementById("eded").value;
+            let cvb="";
+            if (x > ran) {
+                cvb = "asagi";
+                sans--;
+            }
+            else if (x < ran) {
+                cvb = "yuxari";
+                sans--;
+            }
+            else {
+                cvb = "urraaaa";
+                setInterval(refresh,1500);
+            }
+            if (sans == 0) {
+                alert("uduzdun");
+                document.getElementById("eded").disabled = true;
+            }
+            document.getElementById("yazdir").innerHTML = cvb;
+
+        }
+        function bas() {
+            document.getElementById("eded").value = "";
+        }
+        function refresh(){
+            location.reload();
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
